@@ -6,7 +6,8 @@ pragma solidity >=0.4.16 <0.9.0;
 contract SimpleStorage {
     uint betAmt;
     uint memberLimit = 100;
-    address[] members = new address[](memberLimit);
+    // address[] members = new address[](memberLimit);
+    mapping(address => uint) public members;
 
     function setBet(uint x) public {
         betAmt = x;
@@ -16,9 +17,9 @@ contract SimpleStorage {
         return betAmt;
     }
 
-    function storeMembers(address member) public{
+    function storeMembers(address _member, uint _bet) public{
         // TODO: Store contributor by address
         // TODO: Associate the wallet address with a given Tx <--- mapping?
-        members.push() = member;
+        members[_member] = _bet;
     }
 }
