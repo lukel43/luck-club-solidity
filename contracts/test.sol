@@ -4,22 +4,26 @@ pragma solidity >=0.4.16 <0.9.0;
 // TODO: Keep in mind concepts around "mutual aid societies"
 
 contract SimpleStorage {
-    uint betAmt;
-    uint memberLimit = 100;
-    // address[] members = new address[](memberLimit);
-    mapping(address => uint) public members;
-
-    function setBet(uint x) public {
-        betAmt = x;
+    // Define a struct to store bets correlated with the address of the bettor
+    struct Bet{
+        uint bet;
+        address bettor;
     }
 
-    function getBet() public view returns (uint) {
-        return betAmt;
+    // Define a dynamic array to store these bets
+    Bet[] public bets;
+    
+    /// @dev Allows user to place a bet and stores it in the array with this address
+    /// @param amt The bet amount
+    function setBet(uint amt) public {
+        Bet memory newBet = Bet(amt, msg.sender);
+        bets.push(newBet);
     }
 
-    function storeMembers(address _member, uint _bet) public{
-        // TODO: Store contributor by address
-        // TODO: Associate the wallet address with a given Tx <--- mapping?
-        members[_member] = _bet;
+    /// @dev Allows the user to get a specific bet from the array
+    /// @param index The index of the bet being received
+    /// @return bets[index] The struct of the bet at the specified index
+    function getBet(uint index) public view returns (Bet memory) {
+        return bets[index];
     }
 }
