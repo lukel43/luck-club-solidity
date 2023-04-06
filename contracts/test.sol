@@ -14,7 +14,6 @@ contract SimpleStorage {
     Bet[] public bets;
     
     /// @dev Allows user to place a bet and stores it in the array with this address
-    /// @param amt The bet amount
     function setBet() public payable {
         require(msg.value >= 0.01 ether, "Insufficient funds");
         Bet memory newBet = Bet(msg.value, msg.sender);
