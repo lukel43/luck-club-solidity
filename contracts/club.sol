@@ -24,11 +24,11 @@ contract Club{
     event WinnerSelected(address winner, uint prize);
 
     // Initialize the contract with the timestamp for the end of the betting period
-    constructor(uint duration) payable {
-        require(msg.value > 0, "Insufficient funds");
-        require(duration > 0, "Duration must be greater than zero");
+    constructor() payable {
+        //require(msg.value > 0, "Insufficient funds");
+        //require(duration > 0, "Duration must be greater than zero");
         owner = msg.sender;
-        endTime = block.timestamp + duration;
+        //endTime = block.timestamp + duration;
         Bet memory newBet = Bet(msg.value, msg.sender);
         bets.push(newBet);
     }
