@@ -12,7 +12,8 @@ contract Factory{
 
     function makeClub() public {
         Club club = new Club();
-        CreatedClub(club);
+        emit CreatedClub(address(club));
+        clubs.push(address(club));
     }   
 
 }

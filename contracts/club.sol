@@ -14,7 +14,8 @@ contract Club{
     // Store the address of the contract creator
     address public owner;
 
-    // Store the timestamp of when the betting period ends
+    // Store the timestamp of when the betting period starts and ends
+    uint public startTime;
     uint public endTime;
 
     // Store the winner of the bet
@@ -27,6 +28,8 @@ contract Club{
     constructor() payable {
         //require(msg.value > 0, "Insufficient funds");
         //require(duration > 0, "Duration must be greater than zero");
+        startTime = block.timestamp;
+        endTime = startTime + 5 minutes;
         owner = msg.sender;
         //endTime = block.timestamp + duration;
         Bet memory newBet = Bet(msg.value, msg.sender);
