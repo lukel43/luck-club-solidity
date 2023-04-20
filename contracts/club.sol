@@ -26,12 +26,9 @@ contract Club{
 
     // Initialize the contract with the timestamp for the end of the betting period
     constructor() payable {
-        //require(msg.value > 0, "Insufficient funds");
-        //require(duration > 0, "Duration must be greater than zero");
         startTime = block.timestamp;
         endTime = startTime + 5 minutes;
         owner = msg.sender;
-        //endTime = block.timestamp + duration;
         Bet memory newBet = Bet(msg.value, msg.sender);
         bets.push(newBet);
     }
@@ -58,5 +55,11 @@ contract Club{
         uint prize = address(this).balance;
         emit WinnerSelected(winner, prize);
         payable(winner).transfer(prize);
+        // TODO: Return winner address?
     }
+
+    // TODO: Add a viewable for pool particpants to verify?
+
+    // TODO: viewWinner function?\
+
 }

@@ -871,7 +871,7 @@
   "sourceMap": "147:237:1:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "147:237:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;170:22;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;236:142;;;:::i;:::-;;170:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;236:142::-;273:9;285:10;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;273:22;;310:26;330:4;310:26;;;;;;:::i;:::-;;;;;;;;346:5;365:4;346:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;263:115;236:142::o;-1:-1:-1:-;;;;;;;;:::o;88:117:2:-;197:1;194;187:12;334:77;371:7;400:5;389:16;;334:77;;;:::o;417:122::-;490:24;508:5;490:24;:::i;:::-;483:5;480:35;470:63;;529:1;526;519:12;470:63;417:122;:::o;545:139::-;591:5;629:6;616:20;607:29;;645:33;672:5;645:33;:::i;:::-;545:139;;;;:::o;690:329::-;749:6;798:2;786:9;777:7;773:23;769:32;766:119;;;804:79;;:::i;:::-;766:119;924:1;949:53;994:7;985:6;974:9;970:22;949:53;:::i;:::-;939:63;;895:117;690:329;;;;:::o;1025:126::-;1062:7;1102:42;1095:5;1091:54;1080:65;;1025:126;;;:::o;1157:96::-;1194:7;1223:24;1241:5;1223:24;:::i;:::-;1212:35;;1157:96;;;:::o;1259:118::-;1346:24;1364:5;1346:24;:::i;:::-;1341:3;1334:37;1259:118;;:::o;1383:222::-;1476:4;1514:2;1503:9;1499:18;1491:26;;1527:71;1595:1;1584:9;1580:17;1571:6;1527:71;:::i;:::-;1383:222;;;;:::o",
   "source": "// SPDX-License-Identifier: GPL-3.0\npragma solidity >=0.4.16 <0.9.0;\n\nimport './club.sol';\n\n// TODO: Make data structure to hold child contracts?\n\ncontract Factory{\n\n    address[] public clubs;\n    event CreatedClub(address club);\n\n    function makeClub() public {\n        Club club = new Club();\n        emit CreatedClub(address(club));\n        clubs.push(address(club));\n    }   \n\n}",
-  "sourcePath": "/Users/lukelac/Documents/allegheny-computer-science/luck-club/contracts/factory.sol",
+  "sourcePath": "C:\\Users\\dougl\\OneDrive\\Desktop\\luck-club-solidity\\contracts\\factory.sol",
   "ast": {
     "absolutePath": "project:/contracts/factory.sol",
     "exportedSymbols": {
@@ -1374,12 +1374,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xF7EAe65a09A31c6383991751E66D7296afd92139",
-      "transactionHash": "0x120cbfdf9aa10224fc2056ef7efee74d3adc4d8e3dce851440c7607b11e435f1"
+      "address": "0x0045d7748A21A1B515c3F3498026B73AdD13c8C5",
+      "transactionHash": "0x02691f2997afe8b64f4f9abac1b61e633fbc4c8c2e62aab27ff96c0aaf274c0c"
     }
   },
-  "schemaVersion": "3.4.11",
-  "updatedAt": "2023-04-20T15:36:09.687Z",
+  "schemaVersion": "3.4.12",
+  "updatedAt": "2023-04-20T16:56:30.888Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
