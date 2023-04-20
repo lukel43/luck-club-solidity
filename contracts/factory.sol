@@ -14,6 +14,8 @@ contract Factory{
         Club club = new Club();
         emit CreatedClub(address(club));
         clubs.push(address(club));
-    }   
+    }
+
+    // TODO: View function for factory'd contracts
 
 }
