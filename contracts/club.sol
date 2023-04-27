@@ -47,7 +47,7 @@ contract Club{
     }
 
     // Selects a winner and transfers the prize to them
-    function selectWinner() public {
+    function selectWinner() public returns(address){
         require(block.timestamp >= endTime, "Betting period has not ended yet");
         require(bets.length > 0, "No bets have been placed");
         uint index = _random() % bets.length;
@@ -55,11 +55,16 @@ contract Club{
         uint prize = address(this).balance;
         emit WinnerSelected(winner, prize);
         payable(winner).transfer(prize);
-        // TODO: Return winner address?
+        return winner;
     }
 
-    // TODO: Add a viewable for pool particpants to verify?
+    // Add a viewable for pool particpants to verify?
+    function viewPool() public view returns (Bet[] memory){
+        return bets;
+    }
 
-    // TODO: viewWinner function?\
-
+    // viewWinner function?\
+    function viewWinner() public view returns (address){
+        return winner;
+    }
 }

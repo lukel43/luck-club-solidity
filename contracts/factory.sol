@@ -3,7 +3,7 @@ pragma solidity >=0.4.16 <0.9.0;
 
 import './club.sol';
 
-// TODO: Make data structure to hold child contracts?
+// Make data structure to hold child contracts?
 
 contract Factory{
 
@@ -16,6 +16,7 @@ contract Factory{
         clubs.push(address(club));
     }
 
-    // TODO: View function for factory'd contracts
-
+    function viewClubs() public view returns (address[] memory){
+        return clubs;
+    }
 }
